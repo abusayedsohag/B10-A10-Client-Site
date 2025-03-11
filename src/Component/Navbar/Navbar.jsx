@@ -2,13 +2,6 @@ import React from 'react';
 
 const Navbar = () => {
 
-    const btn = {
-
-    }
-
-
-
-
 
 
     return (
