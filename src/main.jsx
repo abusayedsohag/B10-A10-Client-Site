@@ -7,11 +7,13 @@ import {
 import "./index.css";
 import Root from "./Root";
 import Home from "./Component/Home/Home";
+import Error from "./Component/Error/Error";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",
