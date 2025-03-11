@@ -1,9 +1,10 @@
 import React from 'react';
+import Navbar from './Component/Navbar/Navbar';
 
 const Root = () => {
     return (
-        <div>
-            <h1 className=''>Data in Connected</h1>
+        <div className='pt-8'>
+            <Navbar></Navbar>
         </div>
     );
 };
