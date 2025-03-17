@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthContext';
 
 const Navbar = () => {
 
+    const { user, logOutUser } = useContext(AuthContext)
 
+    const links = <>
+        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink>All Campaign</NavLink></li>
+        <li><NavLink>Add New Cmapaign</NavLink></li>
+        <li><NavLink>My Campaign</NavLink></li>
+        <li><NavLink>My Donations</NavLink></li>
+    </>
 
     return (
         <div>
@@ -26,26 +36,56 @@ const Navbar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                            <li><a>Home</a></li>
-                            <li><a>All Campaign</a></li>
-                            <li><a>Add New Cmapaign</a></li>
-                            <li><a>My Campaign</a></li>
-                            <li><a>My Donations</a></li>
+                            {links}
                         </ul>
                     </div>
                     <a className="btn btn-ghost text-xl">Crowdcube</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                        <li><a>Home</a></li>
-                        <li><a>All Campaign</a></li>
-                        <li><a>Add New Cmapaign</a></li>
-                        <li><a>My Campaign</a></li>
-                        <li><a>My Donations</a></li>
+                        {links}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Login</a>
+                <div className='navbar-end'>
+                    {
+                        user ? (
+                            <div className='w-full'>
+                                {
+                                    user.photoURL ? (
+
+                                        <div className='flex justify-end'>
+                                            <h1 className="group relative flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg transition-all duration-500
+                                            hover:w-full">
+
+                                                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-green-500 opacity-0 transition duration-300 group-hover:opacity-100"></span>
+
+                                                <span className="text-black text-xl transition-transform duration-300 group-hover:scale-0"><img className='rounded-full' src={user.photoURL} /></span>
+
+                                                <span className="absolute scale-0 text-white transition-transform duration-500 group-hover:scale-100 hover:opacity-100 w-full">
+                                                    <div className='w-full flex justify-between items-center'>
+                                                        <h1 className='text-sm flex justify-center w-full'>{user.displayName}</h1>
+                                                        <button onClick={() => logOutUser()} className='btn rounded-e-full'>Log Out</button>
+                                                    </div>
+                                                </span>
+                                            </h1>
+                                        </div>
+
+                                    ) : (
+                                        <i className="fa-solid fa-circle-user text-3xl pr-3"></i>
+                                    )
+                                }
+                            </div>
+                        ) : (
+                            <div className='navbar-end gap-1'>
+                                <div className="">
+                                    <Link to='/login'><h1 className="btn">Login</h1></Link>
+                                </div>
+                                <div className="">
+                                    <Link to='/register'><h1 className="btn">Register</h1></Link>
+                                </div>
+                            </div>
+                        )
+                    }
                 </div>
             </div>
         </div>
