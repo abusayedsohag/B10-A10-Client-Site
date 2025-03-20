@@ -1,4 +1,4 @@
-import React, { use, useContext } from 'react';
+import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthContext';
 import Swal from 'sweetalert2';
 
@@ -18,9 +18,9 @@ const AddCampaigns = () => {
         const deadline = form.deadline.value;
         const useremail = form.useremail.value;
         const username = form.username.value;
-        const descrription = form.descrription.value;
+        const description = form.description.value;
 
-        const newCampaign = { image, title, type, amount, deadline, useremail, username, descrription }
+        const newCampaign = { image, title, type, amount, deadline, useremail, username, description }
 
         // console.log(newCampaign)
 
@@ -111,7 +111,7 @@ const AddCampaigns = () => {
                                 <label className="label">
                                     <span className="label-text">Description</span>
                                 </label>
-                                <textarea className='textarea w-full' placeholder='Description' name="descrription"></textarea>
+                                <textarea className='textarea w-full' placeholder='Description' name="description"></textarea>
                             </div>
 
                             <div className="form-control mt-6 col-span-2">
