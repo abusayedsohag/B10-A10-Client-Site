@@ -1,13 +1,16 @@
 import React, { useContext, useState } from 'react';
 import Swal from 'sweetalert2'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthContext';
+import { signInWithPopup } from 'firebase/auth';
+import { auth } from '../../Provider/Firebase_init';
 
 const Login = () => {
 
     const [show, setShow] = useState(false)
+    const navigate = useNavigate()
 
-    const { existingUser } = useContext(AuthContext)
+    const { existingUser, googleUser, githubUser } = useContext(AuthContext)
 
     const handleShow = (active) => {
         setShow(active)
@@ -21,7 +24,17 @@ const Login = () => {
         const password = form.password.value;
 
         existingUser(email, password)
-            .then(res => { console.log(res) })
+            .then(res => {
+                console.log(res)
+                Swal.fire({
+                    title: "Login Successful",
+                    icon: "success",
+                    draggable: true
+                });
+
+                navigate('/')
+
+            })
             .catch(error => {
                 console.log(error.code)
                 Swal.fire({
@@ -33,6 +46,52 @@ const Login = () => {
 
     }
 
+    const googleSignIn = () => {
+        signInWithPopup(auth, googleUser)
+            .then(res => {
+                console.log(res)
+                Swal.fire({
+                    title: "Login Successful",
+                    icon: "success",
+                    draggable: true
+                });
+
+                navigate('/')
+
+            })
+            .catch(error => {
+                console.log(error.code)
+                Swal.fire({
+                    icon: "error",
+                    title: "Invalid Password",
+                    text: "Email or Password is wrong!",
+                });
+            })
+    }
+
+    const githubSignIn = () => {
+        signInWithPopup(auth, githubUser)
+            .then(res => {
+                console.log(res)
+                Swal.fire({
+                    title: "Login Successful",
+                    icon: "success",
+                    draggable: true
+                });
+
+                navigate('/')
+
+            })
+            .catch(error => {
+                console.log(error)
+                console.log(error.code)
+                Swal.fire({
+                    icon: "error",
+                    title: "Invalid Password",
+                    text: "Email or Password is wrong!",
+                });
+            })
+    }
 
     return (
         <div>
@@ -80,9 +139,9 @@ const Login = () => {
                                 <hr className='border border-black w-5/12' />
                             </div>
                             <div className='h-14 flex justify-center items-center gap-4'>
-                                <i className="fa-brands fa-google text-3xl"></i>
-                                <i className="fa-brands fa-github text-3xl"></i>
-                                <i className="fa-brands fa-facebook text-3xl"></i>
+                                <button onClick={googleSignIn}><i className="fa-brands fa-google text-3xl"></i></button>
+                                <button onClick={githubSignIn}><i className="fa-brands fa-github text-3xl"></i></button>
+                                {/* <button onClick={facebookSignIn}><i className="fa-brands fa-facebook text-3xl"></i></button> */}
                             </div>
                         </form>
                     </div>

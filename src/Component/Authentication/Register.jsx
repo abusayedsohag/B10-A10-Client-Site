@@ -1,14 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthContext';
 import Swal from 'sweetalert2'
-import { Link } from 'react-router-dom';
-import { updateProfile } from 'firebase/auth';
-import { auth } from '../../Provider/Firebase.init';
+import { Link, useNavigate } from 'react-router-dom';
+import { signInWithPopup, updateProfile } from 'firebase/auth';
+import { auth } from '../../Provider/Firebase_init';
 
 const Register = () => {
 
     const [show, setShow] = useState(false)
-    const { createUser, setUser } = useContext(AuthContext)
+    const { createUser, githubUser, googleUser} = useContext(AuthContext)
+
+    const navigate = useNavigate()
 
     const handleShow = (active) => {
         setShow(active)
@@ -48,9 +50,9 @@ const Register = () => {
                 }
 
                 updateProfile(auth.currentUser, profile)
-                    .then(data => {
-                        setUser(data)
-                    })
+                    .then(res => { console.log(res) })
+
+                navigate('/')
 
                 //store userdata in MongoDB
                 fetch('http://localhost:5001/user', {
@@ -85,6 +87,53 @@ const Register = () => {
             })
 
         form.reset();
+    }
+
+    const googleSignIn = () => {
+        signInWithPopup(auth, googleUser)
+            .then(res => {
+                console.log(res)
+                Swal.fire({
+                    title: "Login Successful",
+                    icon: "success",
+                    draggable: true
+                });
+
+                navigate('/')
+
+            })
+            .catch(error => {
+                console.log(error.code)
+                Swal.fire({
+                    icon: "error",
+                    title: "Invalid Password",
+                    text: "Email or Password is wrong!",
+                });
+            })
+    }
+
+    const githubSignIn = () => {
+        signInWithPopup(auth, githubUser)
+            .then(res => {
+                console.log(res)
+                Swal.fire({
+                    title: "Login Successful",
+                    icon: "success",
+                    draggable: true
+                });
+
+                navigate('/')
+
+            })
+            .catch(error => {
+                console.log(error)
+                console.log(error.code)
+                Swal.fire({
+                    icon: "error",
+                    title: "Invalid Password",
+                    text: "Email or Password is wrong!",
+                });
+            })
     }
 
 
@@ -142,9 +191,9 @@ const Register = () => {
                                 <hr className='border border-black w-5/12' />
                             </div>
                             <div className='h-14 flex justify-center items-center gap-4'>
-                                <i className="fa-brands fa-google text-3xl"></i>
-                                <i className="fa-brands fa-github text-3xl"></i>
-                                <i className="fa-brands fa-facebook text-3xl"></i>
+                                <button onClick={googleSignIn}><i className="fa-brands fa-google text-3xl"></i></button>
+                                <button onClick={githubSignIn}><i className="fa-brands fa-github text-3xl"></i></button>
+                                {/* <button onClick={facebookSignIn}><i className="fa-brands fa-facebook text-3xl"></i></button> */}
                             </div>
                         </form>
                     </div>

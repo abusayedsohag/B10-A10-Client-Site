@@ -63,7 +63,7 @@ const Navbar = () => {
 
                                                 <span className="absolute scale-0 text-white transition-transform duration-500 group-hover:scale-100 hover:opacity-100 w-full">
                                                     <div className='w-full flex justify-between items-center'>
-                                                        <h1 className='text-sm flex justify-center w-full'>{user.displayName}</h1>
+                                                        <h1 className='text-sm flex justify-center items-center pl-3 w-full'>{user.displayName}</h1>
                                                         <button onClick={() => logOutUser()} className='btn rounded-e-full'>Log Out</button>
                                                     </div>
                                                 </span>
