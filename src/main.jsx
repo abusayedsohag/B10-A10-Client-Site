@@ -13,6 +13,8 @@ import Login from "./Component/Authentication/Login";
 import Register from "./Component/Authentication/Register";
 import AuthProvider from "./Provider/AuthProvider";
 import Privacy from "./Component/Footer/Privacy";
+import AddCampaigns from "./Component/Campaigns/AddCampaigns";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +43,10 @@ const router = createBrowserRouter([
       {
         path: "/policy",
         element: <Privacy></Privacy>,
+      },
+      {
+        path: "/addCampaigns",
+        element: <PrivateRoute><AddCampaigns></AddCampaigns></PrivateRoute>,
       },
     ]
   },
