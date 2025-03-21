@@ -14,7 +14,7 @@ const Navbar = () => {
                 user && (
                     <>
                         <li><NavLink to="/addCampaigns">Add New Cmapaign</NavLink></li>
-                        <li><NavLink>My Campaign</NavLink></li>
+                        <li><NavLink to="/mycampaigns">My Campaign</NavLink></li>
                         <li><NavLink>My Donations</NavLink></li>
                     </>
                 )
