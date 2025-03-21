@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthContext';
+import Swal from 'sweetalert2';
 
 const Details = () => {
 
@@ -14,17 +15,25 @@ const Details = () => {
         const donateName = user.displayName;
         const donateEmail = user.email;
         const { image, title, type, amount, deadline, description, useremail, username } = cardInfo;
-        const campaignData = {image, title, type, amount, deadline, description, useremail, username , donateName, donateEmail}
-        console.log(campaignData)
+        const donationData = { image, title, type, amount, deadline, description, useremail, username, donateName, donateEmail }
+        console.log(donationData)
 
-        fetch('http://localhost:5001/donatelist',{
+        fetch('http://localhost:5001/donatelist', {
             method: "POST",
             headers: {
-                "Content-type" : "application/json"
+                "Content-type": "application/json"
             },
-            body: JSON.stringify(campaignData)
+            body: JSON.stringify(donationData)
         })
-        .then(res => {console.log(res)})
+            .then(res => {
+                console.log(res)
+                Swal.fire({
+                    title: "Donate Successfully",
+                    icon: "success",
+                    draggable: true
+                });
+            })
+            .catch(error => { console.log(error) })
     }
 
 
