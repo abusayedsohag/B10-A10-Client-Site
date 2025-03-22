@@ -7,7 +7,7 @@ import { AuthContext } from './AuthContext';
 const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null)
-    const [loader, setLoader] = useState(true)
+    const [loader, setLoader] = useState(true);
 
     const createUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
@@ -37,6 +37,7 @@ const AuthProvider = ({ children }) => {
     const userInfo = {
         user,
         loader,
+        setLoader,
         createUser,
         googleUser,
         githubUser,
