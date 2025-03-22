@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import { useLoaderData } from 'react-router-dom';
-import { AuthContext } from '../../Provider/AuthContext';
+import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../Provider/AuthContext';
 
 const MyCampaigns = () => {
 
@@ -9,7 +9,6 @@ const MyCampaigns = () => {
     const { user } = useContext(AuthContext);
 
     const userCampaigns = campaigns.filter(campaign => campaign.useremail === user.email);
-    console.log(userCampaigns)
 
 
     return (
@@ -29,7 +28,7 @@ const MyCampaigns = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            userCampaigns.map(camp => (
+                            userCampaigns?.map(camp => (
                                 <tr>
                                     <td>
                                         <div className="flex items-center space-x-3">
@@ -51,7 +50,7 @@ const MyCampaigns = () => {
                                         <h1>{camp.amount} BDT</h1>
                                     </td>
                                     <th>
-                                        <button className="btn btn-primary btn-xs">Update</button>
+                                        <Link to={`/updateCampaign/${camp._id}`}><button className="btn btn-primary btn-xs">Update</button></Link>
                                     </th>
                                     <th>
                                         <button className="btn btn-error btn-xs">Delete</button>

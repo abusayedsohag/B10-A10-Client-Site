@@ -16,7 +16,8 @@ import Privacy from "./Component/Footer/Privacy";
 import AddCampaigns from "./Component/Campaigns/AddCampaigns";
 import PrivateRoute from "./PrivateRoute";
 import AllCampaigns from "./Component/Campaigns/AllCampaigns";
-import MyCampaigns from "./Component/Campaigns/MyCampaigns";
+import MyCampaigns from "./Component/Campaigns/MyCampaigns/MyCampaigns";
+import UpdateCampaigns from "./Component/Campaigns/MyCampaigns/UpdateCampaigns";
 
 
 const router = createBrowserRouter([
@@ -60,6 +61,11 @@ const router = createBrowserRouter([
         path: "/mycampaigns",
         element: <PrivateRoute><MyCampaigns></MyCampaigns></PrivateRoute>,
         loader: () => fetch('http://localhost:5001/campaigns')
+      },
+      {
+        path: "/updateCampaign/:id",
+        element: <PrivateRoute><UpdateCampaigns></UpdateCampaigns></PrivateRoute>,
+        loader: ({params}) => fetch(`http://localhost:5001/campaign/${params.id}`)
       },
     ]
   },
