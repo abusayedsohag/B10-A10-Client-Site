@@ -1,14 +1,11 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../../Provider/AuthContext';
+import React from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const UpdateCampaigns = () => {
 
-    const {user }= useContext(AuthContext);
     const campaignData = useLoaderData();
     const param = useParams();
-    // console.log(campaignData , param)
 
     const handleUpdate = (e) => {
         e.preventDefault();
