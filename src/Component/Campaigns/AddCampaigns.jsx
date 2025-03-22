@@ -31,14 +31,17 @@ const AddCampaigns = () => {
             },
             body: JSON.stringify(newCampaign)
         })
-            .then(res => {
-                console.log(res)
-                Swal.fire({
-                    title: "Successfully Added",
-                    icon: "success",
-                    draggable: true
-                });
-                form.reset();
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: "Successfully Added",
+                        icon: "success",
+                        draggable: true
+                    });
+                    form.reset();
+                }
             })
     }
 

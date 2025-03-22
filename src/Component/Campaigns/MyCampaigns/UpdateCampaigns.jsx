@@ -27,13 +27,23 @@ const UpdateCampaigns = () => {
             },
             body: JSON.stringify(updateCampaign)
         })
-            .then(res => {
-                console.log(res)
-                Swal.fire({
-                    title: "Successfully Updated",
-                    icon: "success",
-                    draggable: true
-                });
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    Swal.fire({
+                        title: "Successfully Updated",
+                        icon: "success",
+                        draggable: true
+                    });
+                }
+                else {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Something went wrong!",
+                    });
+                }
             })
     }
 

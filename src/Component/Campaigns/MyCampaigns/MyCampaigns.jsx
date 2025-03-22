@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthContext';
+import Swal from 'sweetalert2';
 
 const MyCampaigns = () => {
 
@@ -8,7 +9,56 @@ const MyCampaigns = () => {
 
     const { user } = useContext(AuthContext);
 
-    const userCampaigns = campaigns.filter(campaign => campaign.useremail === user.email);
+    const [updateCamp, setUpdateCamp] = useState([])
+
+    useEffect(() => {
+
+        const userCampaigns = campaigns.filter(campaign => campaign.useremail === user.email);
+        setUpdateCamp(userCampaigns);
+
+    }, [campaigns, user?.email]);
+
+    const handleDelete = (id) => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                fetch(`http://localhost:5001/campaign/${id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+
+                        console.log(data)
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+
+                            const deleteCampaigns = updateCamp.filter(fil => fil._id !== id)
+                            setUpdateCamp(deleteCampaigns)
+                        }
+                        else {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "Something went wrong!",
+                            });
+                        }
+
+                    })
+            }
+        });
+    }
 
 
     return (
@@ -28,8 +78,8 @@ const MyCampaigns = () => {
                     <tbody>
                         {/* row 1 */}
                         {
-                            userCampaigns?.map(camp => (
-                                <tr>
+                            updateCamp?.map(camp => (
+                                <tr key={camp._id}>
                                     <td>
                                         <div className="flex items-center space-x-3">
                                             <div className="avatar">
@@ -53,7 +103,7 @@ const MyCampaigns = () => {
                                         <Link to={`/updateCampaign/${camp._id}`}><button className="btn btn-primary btn-xs">Update</button></Link>
                                     </th>
                                     <th>
-                                        <button className="btn btn-error btn-xs">Delete</button>
+                                        <button onClick={() => handleDelete(camp._id)} className="btn btn-error btn-xs">Delete</button>
                                     </th>
                                 </tr>
                             ))
