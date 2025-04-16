@@ -6,7 +6,6 @@ const AddCampaigns = () => {
 
     const { user } = useContext(AuthContext);
 
-
     const handleAdd = (e) => {
         e.preventDefault();
 
@@ -21,8 +20,6 @@ const AddCampaigns = () => {
         const description = form.description.value;
 
         const newCampaign = { image, title, type, amount, deadline, useremail, username, description }
-
-        // console.log(newCampaign)
 
         fetch('http://localhost:5001/campaigns', {
             method: "POST",
@@ -73,12 +70,12 @@ const AddCampaigns = () => {
                                 <label className="label">
                                     <span className="label-text">Campaign Type</span>
                                 </label>
-                                <select name='type' className="select w-full label">
-                                    <option className='label-text' disabled selected>Pick your Campaign Type</option>
-                                    <option>Personal Issue</option>
-                                    <option>Startup</option>
-                                    <option>Business</option>
-                                    <option>Creative Ideas</option>
+                                <select defaultValue="pickup" name='type' className="select w-full label">
+                                    <option value="pickup" className='label-text' disabled selected>Pick your Campaign Type</option>
+                                    <option value="Personal Issue">Personal Issue</option>
+                                    <option value="Startup">Startup</option>
+                                    <option value="Business">Business</option>
+                                    <option value="Creative Ideas">Creative Ideas</option>
                                 </select>
                             </div>
 

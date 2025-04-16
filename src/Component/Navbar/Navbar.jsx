@@ -24,7 +24,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className="navbar bg-blue-400 text-white w-11/12 mx-auto rounded-lg">
+            <div className="flex items-center pr-2 sm:navbar sm:w-11/12 bg-blue-400 text-white w-11/12 mx-auto rounded-lg">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -43,11 +43,11 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-black">
                             {links}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl">Crowdcube</a>
+                    <a className="btn btn-ghost sm:text-xl">Crowd<span className='text-red-800'>Cube</span></a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -62,17 +62,17 @@ const Navbar = () => {
                                     user.photoURL ? (
 
                                         <div className='flex justify-end'>
-                                            <h1 className="group relative flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-lg transition-all duration-500
+                                            <h1 className="group relative flex h-6 w-6 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white shadow-lg transition-all duration-500
                                             hover:w-full">
 
-                                                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-green-500 opacity-0 transition duration-300 group-hover:opacity-100"></span>
+                                                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-green-500 opacity-0 transition duration-500 group-hover:opacity-100"></span>
 
                                                 <span className="text-black text-xl transition-transform duration-300 group-hover:scale-0"><img className='rounded-full' src={user.photoURL} /></span>
 
                                                 <span className="absolute scale-0 text-white transition-transform duration-500 group-hover:scale-100 hover:opacity-100 w-full">
                                                     <div className='w-full flex justify-between items-center'>
-                                                        <h1 className='text-sm flex justify-center items-center pl-3 w-full'>{user.displayName}</h1>
-                                                        <button onClick={() => logOutUser()} className='btn rounded-e-full'>Log Out</button>
+                                                        <h1 className='text-sm flex justify-center items-center pl-3 w-full'>{user.displayName.split(' ').slice(0, 2).join(' ')}</h1>
+                                                        <button onClick={() => logOutUser()} className='btn btn-xs rounded-e-full md:btn md:rounded-e-full'>Log Out</button>
                                                     </div>
                                                 </span>
                                             </h1>
@@ -86,10 +86,10 @@ const Navbar = () => {
                         ) : (
                             <div className='navbar-end gap-1'>
                                 <div className="">
-                                    <Link to='/login'><h1 className="btn">Login</h1></Link>
+                                    <Link to='/login'><h1 className="btn btn-xs sm:btn">Login</h1></Link>
                                 </div>
                                 <div className="">
-                                    <Link to='/register'><h1 className="btn">Register</h1></Link>
+                                    <Link to='/register'><h1 className="btn btn-xs sm:btn">Register</h1></Link>
                                 </div>
                             </div>
                         )
