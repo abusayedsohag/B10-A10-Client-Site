@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 
 const Card = ({ card }) => {
 
-
-
-
     return (
         <div className='h-min-[450px]'>
             <div className="card card-compact h-full bg-base-100 shadow-xl">
