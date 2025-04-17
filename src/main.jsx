@@ -29,7 +29,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch('http://localhost:5001/campaign'),
+        loader: async () => {
+          const campaignData = await fetch('http://localhost:5001/campaign').then(res => res.json());
+          const featureData = await fetch('http://localhost:5001/campaigns').then(res => res.json());
+          const donationData = await fetch('http://localhost:5001/donations').then(res => res.json());
+          const userData = await fetch('http://localhost:5001/user').then(res => res.json());
+
+          return { campaign: campaignData, campaigns: featureData, donations: donationData, user: userData };
+        }
       },
       {
         path: "/login",
@@ -61,7 +68,7 @@ const router = createBrowserRouter([
       {
         path: "/updateCampaign/:id",
         element: <PrivateRoute><UpdateCampaigns></UpdateCampaigns></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5001/campaign/${params.id}`)
+        loader: ({ params }) => fetch(`http://localhost:5001/campaign/${params.id}`)
       },
       {
         path: "/myDonation",
