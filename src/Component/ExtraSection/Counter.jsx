@@ -13,16 +13,16 @@ const Counter = () => {
             </div>
             <div className='absolute inset-0 flex justify-around text-center items-center'>
                 <div>
-                    <h1 className='text-4xl md:text-7xl lg:text-9xl font-bold text-white'>{campaigns.length}</h1>
-                    <h2 className='md:text-2xl lg:text-3xl font-semibold text-white'>Campaigns</h2>
+                    <h1 className='text-3xl md:text-5xl lg:text-7xl font-bold text-white'>{campaigns.length}</h1>
+                    <h2 className='text-xs md:text-2xl lg:text-3xl font-semibold text-white'>Campaigns</h2>
                 </div>
                 <div>
-                    <h1 className='text-4xl md:text-7xl lg:text-9xl font-bold text-white'>{donations.length}</h1>
-                    <h2 className='md:text-2xl lg:text-3xl font-semibold text-white'>Donations</h2>
+                    <h1 className='text-3xl md:text-5xl lg:text-7xl font-bold text-white'>{donations.length}</h1>
+                    <h2 className='text-xs md:text-2xl lg:text-3xl font-semibold text-white'>Donations</h2>
                 </div>
                 <div>
-                    <h1 className='text-4xl md:text-7xl lg:text-9xl font-bold text-white'>{user.length}</h1>
-                    <h2 className='md:text-2xl lg:text-3xl font-semibold text-white'>Total Users</h2>
+                    <h1 className='text-3xl md:text-5xl lg:text-7xl font-bold text-white'>{user.length}</h1>
+                    <h2 className='text-xs md:text-2xl lg:text-3xl font-semibold text-white'>Total Users</h2>
                 </div>
             </div>
         </div>
