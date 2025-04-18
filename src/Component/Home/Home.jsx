@@ -13,7 +13,6 @@ const Home = () => {
             <Cards></Cards>
             <Features></Features>
             <Counter></Counter>
-            <Blogs></Blogs>
         </div>
     );
 };
