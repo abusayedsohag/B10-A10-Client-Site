@@ -3,7 +3,6 @@ import Banner from '../Banner.jsx/Banner';
 import Cards from './Cards';
 import Features from '../ExtraSection/Features';
 import Counter from '../ExtraSection/Counter';
-import Blogs from '../ExtraSection/blogs';
 
 const Home = () => {
 
