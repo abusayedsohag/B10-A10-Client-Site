@@ -80,7 +80,7 @@ const Register = () => {
                 if (error.code == 'auth/email-already-in-use') {
                     Swal.fire({
                         title: "User Already Exist",
-                        icon: "success",
+                        icon: "error",
                         draggable: true
                     });
                 }
