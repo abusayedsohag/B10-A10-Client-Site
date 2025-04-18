@@ -8,7 +8,7 @@ import { auth } from '../../Provider/Firebase_init';
 const Register = () => {
 
     const [show, setShow] = useState(false)
-    const { createUser, githubUser, googleUser} = useContext(AuthContext)
+    const { createUser, githubUser, googleUser, facebookUser } = useContext(AuthContext)
 
     const navigate = useNavigate()
 
@@ -106,8 +106,8 @@ const Register = () => {
                 console.log(error.code)
                 Swal.fire({
                     icon: "error",
-                    title: "Invalid Password",
-                    text: "Email or Password is wrong!",
+                    title: "Already Another Credential",
+                    text: "User Already Used Another Credential",
                 });
             })
     }
@@ -130,8 +130,32 @@ const Register = () => {
                 console.log(error.code)
                 Swal.fire({
                     icon: "error",
-                    title: "Invalid Password",
-                    text: "Email or Password is wrong!",
+                    title: "Already Another Credential",
+                    text: "User Already Used Another Credential",
+                });
+            })
+    }
+
+    const facebookSignIn = () => {
+        signInWithPopup(auth, facebookUser)
+            .then(res => {
+                console.log(res)
+                Swal.fire({
+                    title: "Login Successful",
+                    icon: "success",
+                    draggable: true
+                });
+
+                navigate('/')
+
+            })
+            .catch(error => {
+                console.log(error)
+                console.log(error.code)
+                Swal.fire({
+                    icon: "error",
+                    title: "Already Another Credential",
+                    text: "User Already Used Another Credential",
                 });
             })
     }
@@ -139,33 +163,38 @@ const Register = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen">
+            <div className="hero min-h-screen mt-4 md:mt-6">
+                <img
+                    src="https://i.ibb.co.com/k2nMF0Lx/14731307-rm218-bb-07.jpg"
+                    alt="bg"
+                    className='h-full md:rounded-t-[400px] lg:rounded-t-[500px]'
+                />
                 <div className="hero-content flex-col">
                     <div className="text-center">
-                        <h1 className="text-5xl font-bold">Register Now!</h1>
+                        <h1 className="text-4xl font-bold text-white">Register Now!</h1>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSignUp} className="card-body">
                             <div className="form-control">
-                                <label className="label">
+                                <label className="label pb-1">
                                     <span className="label-text">Name</span>
                                 </label>
                                 <input type="text" name='name' placeholder="Enter Your Full Name" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
-                                <label className="label">
+                                <label className="label pb-1">
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="email" name='email' placeholder="Enter Your Email" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
-                                <label className="label">
+                                <label className="label pb-1">
                                     <span className="label-text">PhotoURL</span>
                                 </label>
                                 <input type="text" name='photoURL' placeholder="Enter Your Photo URL" className="input input-bordered" required />
                             </div>
                             <div className="form-control">
-                                <label className="label">
+                                <label className="label pb-1">
                                     <span className="label-text">Password</span>
                                 </label>
 
@@ -191,9 +220,9 @@ const Register = () => {
                                 <hr className='border border-black w-5/12' />
                             </div>
                             <div className='h-14 flex justify-center items-center gap-4'>
-                                <button onClick={googleSignIn}><i className="fa-brands fa-google text-3xl"></i></button>
-                                <button onClick={githubSignIn}><i className="fa-brands fa-github text-3xl"></i></button>
-                                {/* <button onClick={facebookSignIn}><i className="fa-brands fa-facebook text-3xl"></i></button> */}
+                                <button type='button' onClick={googleSignIn}><i className="fa-brands fa-google text-3xl"></i></button>
+                                <button type='button' onClick={githubSignIn}><i className="fa-brands fa-github text-3xl"></i></button>
+                                <button type='button' onClick={facebookSignIn}><i className="fa-brands fa-facebook text-3xl"></i></button>
                             </div>
                         </form>
                     </div>
