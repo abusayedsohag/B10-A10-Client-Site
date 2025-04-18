@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, FacebookAuthProvider, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, FacebookAuthProvider, signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { auth } from './Firebase_init';
 import { AuthContext } from './AuthContext';
@@ -15,6 +15,7 @@ const AuthProvider = ({ children }) => {
 
     const googleUser = new GoogleAuthProvider();
     const githubUser = new GithubAuthProvider();
+    const facebookUser = new FacebookAuthProvider();
 
     const existingUser = (email, password) => {
         return signInWithEmailAndPassword(auth, email, password)
@@ -42,6 +43,7 @@ const AuthProvider = ({ children }) => {
         createUser,
         googleUser,
         githubUser,
+        facebookUser,
         logOutUser,
         existingUser,
     }

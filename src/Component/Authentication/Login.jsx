@@ -10,7 +10,7 @@ const Login = () => {
     const [show, setShow] = useState(false)
     const navigate = useNavigate()
 
-    const { existingUser, googleUser, githubUser } = useContext(AuthContext)
+    const { existingUser, googleUser, githubUser, facebookUser } = useContext(AuthContext)
 
     const handleShow = (active) => {
         setShow(active)
@@ -63,8 +63,8 @@ const Login = () => {
                 console.log(error.code)
                 Swal.fire({
                     icon: "error",
-                    title: "Invalid Password",
-                    text: "Email or Password is wrong!",
+                    title: "Already Another Credential",
+                    text: "User Already Used Another Credential",
                 });
             })
     }
@@ -87,34 +87,62 @@ const Login = () => {
                 console.log(error.code)
                 Swal.fire({
                     icon: "error",
-                    title: "Invalid Password",
-                    text: "Email or Password is wrong!",
+                    title: "Already Another Credential",
+                    text: "User Already Used Another Credential",
+                });
+            })
+    }
+
+    const facebookSignIn = () => {
+        signInWithPopup(auth, facebookUser)
+            .then(res => {
+                console.log(res)
+                Swal.fire({
+                    title: "Login Successful",
+                    icon: "success",
+                    draggable: true
+                });
+
+                navigate('/')
+
+            })
+            .catch(error => {
+                console.log(error)
+                console.log(error.code)
+                Swal.fire({
+                    icon: "error",
+                    title: "Already Another Credential",
+                    text: "User Already Used Another Credential",
                 });
             })
     }
 
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
+            <div className="hero min-h-screen mt-4 md:mt-6">
+                <img
+                    src="https://i.ibb.co.com/k2nMF0Lx/14731307-rm218-bb-07.jpg"
+                    alt="bg"
+                    className='h-full md:rounded-t-[400px] lg:rounded-t-[500px]' />
                 <div className="hero-content flex-col">
                     <div className="text-center">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
+                        <h1 className="text-5xl font-bold text-white">Login now!</h1>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleSignIn} className="card-body">
                             <div className="form-control">
-                                <label className="label">
+                                <label className="label pb-1">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name='email' placeholder="Enter Your Email" className="input input-bordered" required />
+                                <input type="email" name='email' placeholder="Enter Your Email" className="input input-primary" required />
                             </div>
                             <div className="form-control">
-                                <label className="label">
+                                <label className="label pb-1">
                                     <span className="label-text">Password</span>
                                 </label>
 
                                 <div className='flex items-center'>
-                                    <input type={show ? 'text' : 'password'} placeholder="Enter Your Password" name='password' className="input input-bordered" required />
+                                    <input type={show ? 'text' : 'password'} placeholder="Enter Your Password" name='password' className="input input-primary" required />
                                     <button type='button' onClick={() => handleShow(!show)} className='absolute right-9'>
                                         {
                                             show ? <i className="fa-solid fa-eye-slash"></i> : <i className="fa-solid fa-eye"></i>
@@ -141,7 +169,7 @@ const Login = () => {
                             <div className='h-14 flex justify-center items-center gap-4'>
                                 <button onClick={googleSignIn}><i className="fa-brands fa-google text-3xl"></i></button>
                                 <button onClick={githubSignIn}><i className="fa-brands fa-github text-3xl"></i></button>
-                                {/* <button onClick={facebookSignIn}><i className="fa-brands fa-facebook text-3xl"></i></button> */}
+                                <button onClick={facebookSignIn}><i className="fa-brands fa-facebook text-3xl"></i></button>
                             </div>
                         </form>
                     </div>
