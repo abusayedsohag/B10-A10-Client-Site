@@ -39,20 +39,19 @@ const Details = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen">
-                <div className="hero-content flex-col bg-base-200">
-                    <img src={cardInfo.image} className="max-w-sm rounded-lg shadow-2xl" />
-                    <div className='p-4 space-y-2'>
-                        <h1 className="text-5xl font-bold">{cardInfo.title}</h1>
-                        <h1 className="text-2xl pt-4"><span className='font-medium'>Campaigns Type:</span> {cardInfo.type}</h1>
-                        <h1 className="text-2xl"><span className='font-medium'>Minimum Donate Amount:</span> ${cardInfo.amount}</h1>
-                        <h1 className="text-2xl"><span className='font-medium'>Deadline:</span> {cardInfo.deadline}</h1>
-                        <h1 className="text-2xl"><span className='font-medium'>User Email:</span> {cardInfo.useremail}</h1>
-                        <h1 className="text-2xl"><span className='font-medium'>User Name:</span> {cardInfo.username}</h1>
-
-                        <p className="py-6">{cardInfo.description}</p>
-
-                        <button onClick={handleDonate} className="btn btn-primary">Donate</button>
+            <div className="hero min-h-screen text-white">
+                <div className="hero-content flex-col bg-slate-700 mx-auto w-11/12 rounded-md my-5">
+                    <img src={cardInfo.image} className="rounded-lg shadow-2xl w-64 md:w-96" />
+                    <div className='md:p-4 md:space-y-2 w-full'>
+                        <h1 className="md:text-4xl lg:text-5xl font-bold">{cardInfo.title}</h1>
+                        <p className="py-1 md:py-6">{cardInfo.description}</p>
+                        <h1 className="md:text-lg pt-4"><span className='font-medium md:text-xl'>Campaigns Type:</span> {cardInfo.type}</h1>
+                        <h1 className="md:text-lg"><span className='font-medium md:text-xl'>Minimum Donate Amount:</span> ${cardInfo.amount}</h1>
+                        <h1 className="md:text-lg"><span className='font-medium md:text-xl'>Deadline:</span> {cardInfo.deadline}</h1>
+                        <h1 className="md:text-lg"><span className='font-medium md:text-xl'>Host_Name:</span> {cardInfo.username}</h1>
+                        <h1 className="md:text-lg"><span className='font-medium md:text-xl'>Host_Email:</span> {cardInfo.useremail}</h1>
+                        <br />
+                        <button onClick={handleDonate} className="btn btn-secondary w-full ">Donate</button>
                     </div>
                 </div>
             </div>
