@@ -49,33 +49,33 @@ const UpdateCampaigns = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen bg-base-200">
-                <div className="hero-content flex-col w-10/12">
+            <div className="hero min-h-screen py-6">
+                <div className="hero-content flex-col md:w-11/12 bg-slate-700 md:p-10 rounded-md">
                     <div className="text-center">
-                        <h1 className="text-5xl font-bold">Update Campaign</h1>
+                        <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white">Update Campaign</h1>
                     </div>
                     <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
-                        <form onSubmit={handleUpdate} className="card-body grid grid-cols-2 gap-x-11 gap-y-4">
+                        <form onSubmit={handleUpdate} className="card-body grid grid-cols-1 md:grid-cols-2 gap-x-11 gap-y-4">
 
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Image or Thumbnail</span>
                                 </label>
-                                <input type="url" name='image' defaultValue={campaignData.image} className="input input-bordered w-full" required />
+                                <input type="url" name='image' defaultValue={campaignData.image} className="input input-bordered bg-slate-700 text-white w-full" required />
                             </div>
 
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Campaigns Title</span>
                                 </label>
-                                <input type="text" name='title' defaultValue={campaignData.title} className="input input-bordered w-full" required />
+                                <input type="text" name='title' defaultValue={campaignData.title} className="input input-bordered bg-slate-700 text-white w-full" required />
                             </div>
 
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Campaign Type</span>
                                 </label>
-                                <select name='type' className="select w-full label" defaultValue={campaignData.type}>
+                                <select name='type' className="input input-bordered bg-slate-700 text-white w-full" defaultValue={campaignData.type}>
                                     <option className='label-text' disabled selected>Pick your Campaign Type</option>
                                     <option>Personal Issue</option>
                                     <option>Startup</option>
@@ -88,39 +88,39 @@ const UpdateCampaigns = () => {
                                 <label className="label">
                                     <span className="label-text">Minimum Donation Amount</span>
                                 </label>
-                                <input type="number" name="amount" className="input input-bordered w-full" required defaultValue={campaignData.amount} />
+                                <input type="number" name="amount" className="input input-bordered w-full bg-slate-700 text-white" required defaultValue={campaignData.amount} />
                             </div>
 
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Deadline</span>
                                 </label> <br />
-                                <input type="date" name="deadline" className="input input-bordered w-full" required defaultValue={campaignData.deadline} />
+                                <input type="date" name="deadline" className="input input-bordered w-full bg-slate-700 text-white" required defaultValue={campaignData.deadline} />
                             </div>
 
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">User Email</span>
                                 </label>
-                                <input type="text" value={campaignData.useremail} name="useremail" className="input input-bordered w-full" required />
+                                <input type="text" value={campaignData.useremail} name="useremail" className="input input-bordered w-full bg-slate-700 text-white" required />
                             </div>
 
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">User Name</span>
                                 </label>
-                                <input type="text" value={campaignData.username} name="username" className="input input-bordered w-full" required />
+                                <input type="text" value={campaignData.username} name="username" className="input input-bordered w-full bg-slate-700 text-white" required />
                             </div>
 
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Description</span>
                                 </label>
-                                <textarea className='textarea w-full' placeholder='Description' defaultValue={campaignData.description} name="description"></textarea>
+                                <textarea className='textarea w-full bg-slate-700 text-white' placeholder='Description' defaultValue={campaignData.description} name="description"></textarea>
                             </div>
 
-                            <div className="form-control mt-6 col-span-2">
-                                <input className='btn btn-primary w-full' type="submit" value="Update" />
+                            <div className="form-control mt-6 md:col-span-2">
+                                <input className='btn btn-secondary w-full' type="submit" value="Update" />
                             </div>
                         </form>
                     </div>
