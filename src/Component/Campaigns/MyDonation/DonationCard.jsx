@@ -5,19 +5,22 @@ const DonationCard = ({ data }) => {
 
     return (
         <div>
-            <div className="card card-side bg-base-100 shadow-xl">
-                <figure className='h-40 w-40'>
-                    <img
-                        src={data.image}
-                        alt={data.title}
-                        className='h-full object-contain'
-                    />
-                </figure>
-                <div className="card-body">
-                    <h2 className="text-2xl font-semibold">{data.title}</h2>
-                    <h2 className="badge badge-outline badge-sm">{data.type}</h2>
-                    <h2 className="font-bold">Donate Amount: <span className='font-normal'>{data.amount} BDT</span></h2>
-                    <p>{data.description}</p>
+            <div className='h-min-[450px]'>
+                <div className="card card-compact h-full bg-base-100 shadow-xl">
+                    <figure>
+                        <img
+                            src={data.image}
+                            alt="Shoes"
+                            className='h-48 w-full'
+                        />
+                    </figure>
+                    <div className="card-body justify-between">
+                        <h2 className="card-title">{data.title}</h2>
+                        <h1>{data.description}</h1>
+                        <h1 className='text-xs md:text-sm'><span className='font-semibold'>Host_Name:</span> {data.username}</h1>
+                        <h1 className='text-xs md:text-sm'><span className='font-semibold'>Host_Email:</span> {data.useremail}</h1>
+                        <h2><span className='font-semibold'>Donated:</span> {data.amount} BDT</h2>
+                    </div>
                 </div>
             </div>
         </div>

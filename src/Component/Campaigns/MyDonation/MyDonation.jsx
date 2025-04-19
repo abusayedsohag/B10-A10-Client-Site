@@ -16,10 +16,12 @@ const MyDonation = () => {
     }, [donations, user?.email])
 
     return (
-        <div  className='my-6 w-11/12 mx-auto space-y-4'>
-            {
-                userDonate?.map(data => <DonationCard key={data._id} data={data} ></DonationCard>)
-            }
+        <div className='w-10/12 md:w-11/12 mx-auto my-5'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 mt-6 gap-3'>
+                {
+                    userDonate?.map(data => <DonationCard key={data._id} data={data} ></DonationCard>)
+                }
+            </div>
         </div>
     );
 };
