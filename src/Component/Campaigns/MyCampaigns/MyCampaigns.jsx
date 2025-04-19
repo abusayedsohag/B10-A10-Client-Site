@@ -62,8 +62,8 @@ const MyCampaigns = () => {
 
 
     return (
-        <div>
-            <div className="overflow-x-auto bg-slate-100 w-11/12 mx-auto my-6">
+        <div className=' w-11/12 mx-auto my-6'>
+            <div className="overflow-x-auto bg-slate-100 hidden md:block">
                 <table className="table">
                     {/* head */}
                     <thead>
@@ -110,6 +110,32 @@ const MyCampaigns = () => {
                         }
                     </tbody>
                 </table>
+            </div>
+
+            {/* For small screens (mobile) */}
+            <div key={updateCamp._id} className="grid md:hidden">
+                {updateCamp?.map((camp) => (
+                    <div key={camp._id}>
+                        <div className="bg-white p-4 flex flex-col gap-2">
+                            <div className="flex items-center gap-4">
+                                <img src={camp.image} alt={camp.title} className="w-12 h-12 object-cover rounded" />
+                                <div>
+                                    <h2 className="font-bold">{camp.title}</h2>
+                                    <p className="text-sm text-gray-500">Deadline: {camp.deadline}</p>
+                                </div>
+                            </div>
+                            <div className="flex justify-between text-sm">
+                                <span className="badge badge-outline badge-xs">{camp.type}</span>
+                                <span className="font-semibold">Mini. Donate: <span className='font-normal text-xs'>{camp.amount} BDT</span></span>
+                            </div>
+                            <div className='flex justify-between items-center'>
+                                <Link className='btn btn-primary btn-xs w-1/2 rounded-e-full' to={`/updateCampaign/${camp._id}`}><button>Update</button></Link>
+                                <button onClick={() => handleDelete(camp._id)} className="btn btn-error btn-xs w-1/2 rounded-s-full">Delete</button>
+                            </div>
+                        </div>
+                        <hr />
+                    </div>
+                ))}
             </div>
         </div>
     );
