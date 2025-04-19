@@ -7,6 +7,7 @@ import Counter from '../ExtraSection/Counter';
 const Home = () => {
 
     return (
+        
         <div>
             <Banner></Banner>
             <Cards></Cards>
