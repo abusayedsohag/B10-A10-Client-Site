@@ -46,7 +46,7 @@ const Details = () => {
                         <h1 className="md:text-4xl lg:text-5xl font-bold">{cardInfo.title}</h1>
                         <p className="py-1 md:py-6">{cardInfo.description}</p>
                         <h1 className="md:text-lg pt-4"><span className='font-medium md:text-xl'>Campaigns Type:</span> {cardInfo.type}</h1>
-                        <h1 className="md:text-lg"><span className='font-medium md:text-xl'>Minimum Donate Amount:</span> ${cardInfo.amount}</h1>
+                        <h1 className="md:text-lg"><span className='font-medium md:text-xl'>Mini. Donate:</span> {cardInfo.amount} BDT</h1>
                         <h1 className="md:text-lg"><span className='font-medium md:text-xl'>Deadline:</span> {cardInfo.deadline}</h1>
                         <h1 className="md:text-lg"><span className='font-medium md:text-xl'>Host_Name:</span> {cardInfo.username}</h1>
                         <h1 className="md:text-lg"><span className='font-medium md:text-xl'>Host_Email:</span> {cardInfo.useremail}</h1>
