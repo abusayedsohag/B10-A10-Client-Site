@@ -18,6 +18,7 @@ import AllCampaigns from "./Component/Campaigns/AllCampaigns";
 import MyCampaigns from "./Component/Campaigns/MyCampaigns/MyCampaigns";
 import UpdateCampaigns from "./Component/Campaigns/MyCampaigns/UpdateCampaigns";
 import MyDonation from "./Component/Campaigns/MyDonation/MyDonation";
+import ThemeProvider from "./Provider/ThemeContext";
 
 
 const router = createBrowserRouter([
@@ -82,8 +83,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} fallbackElement = {<div>Loading</div>} />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <RouterProvider router={router} fallbackElement={<div>Loading</div>} />
+      </AuthProvider>
+    </ThemeProvider>
   </React.StrictMode>
 );
