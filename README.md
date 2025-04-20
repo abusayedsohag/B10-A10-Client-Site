@@ -1,12 +1,27 @@
-# React + Vite
+# 🌐 Crowdcube: A Crowd Funding Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site URL:** [https://site-url.com](https://site-url.com)
 
-Currently, two official plugins are available:
+## 📝 Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Crowdcube is a modern crowdfunding platform where individuals can launch and support fundraising campaigns. Whether it's for creative projects, personal needs, or startup ventures, Crowdcube provides a clean, easy-to-use experience to connect campaign creators with supporters.
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 💡 **Create and Manage Campaigns** — Users can start new campaigns with a title, goal amount, description, image, and deadline.
+- 🔍 **Browse All Campaigns** — Visitors can explore all live campaigns and filter/sort them by amount or deadline.
+- 👤 **User Authentication** — Secure login and registration system with Google sign-in support.
+- 🌗 **Light/Dark Theme Toggle** — Seamlessly switch between light and dark modes with system preference support.
+- 💸 **Donate to Campaigns** — Authenticated users can donate to any campaign and view their donation history.
+
+## 🔧 Tech Stack
+
+- React + Tailwind CSS
+- React Router
+- Firebase Authentication
+- Express.js + MongoDB (for backend)
+- SweetAlert2 for notifications
+
+---
+
+> 📌 _Note: Replace the live URL with your actual deployed site URL._
