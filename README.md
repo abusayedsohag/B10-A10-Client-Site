@@ -23,5 +23,3 @@ Crowdcube is a modern crowdfunding platform where individuals can launch and sup
 - SweetAlert2 for notifications
 
 ---
-
-> 📌 _Note: Replace the live URL with your actual deployed site URL._
