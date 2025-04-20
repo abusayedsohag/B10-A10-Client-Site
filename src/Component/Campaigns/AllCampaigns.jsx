@@ -1,14 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import Card from '../Home/Card';
+import { Typewriter } from 'react-simple-typewriter';
+
 
 const AllCampaigns = () => {
 
-    const cards = useLoaderData();
+    const cardsData = useLoaderData();
+
+    const [cards, setCards] = useState([...cardsData])
+
+    const sortOrder = (info) => {
+        const sorted = [...cards].sort((a, b) => info === "Ascending" ? a.amount - b.amount : b.amount - a.amount)
+        setCards(sorted)
+    }
 
     return (
         <div>
             <div className="w-11/12 mx-auto my-6">
+
+                <div className='flex justify-between items-center mb-1'>
+
+                    <div>
+                        <h1 className='text-center dark:text-white text-lg md:text-2xl font-bold'>
+                            Our Present{' '}
+                            <span className='text-bold text-red-600'>
+                                <Typewriter
+                                    words={['Initiative', 'Drive', 'Effort', 'Project', 'Mission', 'Program', 'Operation', 'Movement']}
+                                    loop={100}
+                                    cursor
+                                    cursorStyle='_'
+                                    typeSpeed={100}
+                                    deleteSpeed={50}
+                                    delaySpeed={1000}
+                                />
+                            </span>
+                        </h1>
+                    </div>
+
+                    <div className="dropdown dropdown-end">
+
+                        <div tabIndex={0} role="button" className="btn-xs md:btn dark:bg-slate-800 dark:text-white">
+                            <i className="fa-solid fa-filter"></i> Sort
+                        </div>
+                        <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-40 p-2 shadow dark:bg-slate-900 dark:text-white">
+                            <li>
+                                <div onClick={() => sortOrder('Ascending')}><i className="fa-solid fa-arrow-down-short-wide"></i>Ascending</div>
+                            </li>
+                            <li>
+                                <div onClick={() => sortOrder('Descending')}><i className="fa-solid fa-arrow-down-wide-short"></i>Descending</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
                 <div className="overflow-x-auto bg-slate-100 dark:bg-slate-800 dark:text-white hidden md:block">
                     <table className="table">
                         {/* head */}
