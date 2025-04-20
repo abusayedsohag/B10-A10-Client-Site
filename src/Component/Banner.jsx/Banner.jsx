@@ -39,7 +39,7 @@ const Banner = () => {
                 ssr={true}
                 infinite={true}
                 autoPlay={true}
-                autoPlaySpeed={3000}
+                autoPlaySpeed={2000}
                 keyBoardControl={true}
             >
                 <div className='flex mx-auto'><img className='flex mx-auto border-4 border-blue-500 rounded-xl w-10/12 md:w-auto' src="https://i.ibb.co.com/BV9DTwhj/Slide1.jpg" alt="" /></div>
