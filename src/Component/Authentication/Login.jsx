@@ -134,7 +134,7 @@ const Login = () => {
                                 <label className="label pb-1">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name='email' placeholder="Enter Your Email" className="input input-primary" required />
+                                <input type="email" name='email' placeholder="Enter Your Email" className="input input-primary dark:bg-slate-800 dark:text-white" required />
                             </div>
                             <div className="form-control">
                                 <label className="label pb-1">
@@ -142,7 +142,7 @@ const Login = () => {
                                 </label>
 
                                 <div className='flex items-center'>
-                                    <input type={show ? 'text' : 'password'} placeholder="Enter Your Password" name='password' className="input input-primary" required />
+                                    <input type={show ? 'text' : 'password'} placeholder="Enter Your Password" name='password' className="input input-primary dark:bg-slate-800 dark:text-white" required />
                                     <button type='button' onClick={() => handleShow(!show)} className='absolute right-9'>
                                         {
                                             show ? <i className="fa-solid fa-eye-slash"></i> : <i className="fa-solid fa-eye"></i>

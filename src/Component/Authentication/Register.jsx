@@ -179,19 +179,19 @@ const Register = () => {
                                 <label className="label pb-1">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" name='name' placeholder="Enter Your Full Name" className="input input-bordered" required />
+                                <input type="text" name='name' placeholder="Enter Your Full Name" className="input input-bordered dark:border-blue-400 dark:bg-slate-800 dark:text-white" required />
                             </div>
                             <div className="form-control">
                                 <label className="label pb-1">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name='email' placeholder="Enter Your Email" className="input input-bordered" required />
+                                <input type="email" name='email' placeholder="Enter Your Email" className="input input-bordered dark:border-blue-400 dark:bg-slate-800 dark:text-white" required />
                             </div>
                             <div className="form-control">
                                 <label className="label pb-1">
                                     <span className="label-text">PhotoURL</span>
                                 </label>
-                                <input type="text" name='photoURL' placeholder="Enter Your Photo URL" className="input input-bordered" required />
+                                <input type="text" name='photoURL' placeholder="Enter Your Photo URL" className="input input-bordered dark:border-blue-400 dark:bg-slate-800 dark:text-white" required />
                             </div>
                             <div className="form-control">
                                 <label className="label pb-1">
@@ -199,7 +199,7 @@ const Register = () => {
                                 </label>
 
                                 <div className='flex items-center'>
-                                    <input type={show ? 'text' : 'password'} placeholder="Enter Your Password" name='password' className="input input-bordered" required />
+                                    <input type={show ? 'text' : 'password'} placeholder="Enter Your Password" name='password' className="input input-bordered dark:border-blue-400 dark:bg-slate-800 dark:text-white" required />
                                     <button type='button' onClick={() => handleShow(!show)} className='absolute right-9'>
                                         {
                                             show ? <i className="fa-solid fa-eye-slash"></i> : <i className="fa-solid fa-eye"></i>
