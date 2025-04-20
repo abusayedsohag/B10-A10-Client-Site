@@ -5,8 +5,8 @@ const DonationCard = ({ data }) => {
 
     return (
         <div>
-            <div className='h-min-[450px]'>
-                <div className="card card-compact h-full bg-base-100 shadow-xl">
+            <div className='h-[450px]'>
+                <div className="card card-compact h-full bg-base-100 dark:bg-slate-800 dark:text-white shadow-xl">
                     <figure>
                         <img
                             src={data.image}

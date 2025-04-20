@@ -40,8 +40,8 @@ const Details = () => {
     return (
         <div>
             <div className="hero min-h-screen text-white">
-                <div className="hero-content flex-col bg-slate-700 mx-auto w-11/12 rounded-md my-5">
-                    <img src={cardInfo.image} className="rounded-lg shadow-2xl w-64 md:w-96" />
+                <div className="hero-content flex-col bg-white text-black dark:text-white dark:bg-slate-800 mx-auto w-11/12 rounded-md my-5">
+                    <img src={cardInfo.image} className="rounded-lg w-64 md:w-96" />
                     <div className='md:p-4 md:space-y-2 w-full'>
                         <h1 className="md:text-4xl lg:text-5xl font-bold">{cardInfo.title}</h1>
                         <p className="py-1 md:py-6">{cardInfo.description}</p>

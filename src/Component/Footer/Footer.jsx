@@ -3,7 +3,7 @@ import logosvg from '../../assets/favicon/favicon.svg'
 
 const Footer = () => {
     return (
-        <footer className="grid space-y-5 sm:grid-rows-3 md:grid-rows-1 md:grid-cols-3 lg:grid-cols-4 bg-orange-400 text-base-content p-10">
+        <footer className="grid space-y-5 sm:grid-rows-3 md:grid-rows-1 md:grid-cols-3 lg:grid-cols-4 bg-orange-400 dark:bg-slate-800 dark:text-white text-base-content p-10">
             <nav>
                 <img className='w-20 rounded-full' src={logosvg} alt="" />
                 <p className='font-bold'>

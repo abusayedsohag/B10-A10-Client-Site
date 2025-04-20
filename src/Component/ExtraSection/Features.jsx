@@ -9,7 +9,7 @@ const Features = () => {
             <Marquee speed={150} pauseOnClick={true} pauseOnHover={true} >
                 <div className='flex gap-5 pl-5'>
 
-                    <div className="card bg-base-100 h-52 w-72 md:h-64 md:w-80 lg:h-64 lg:w-96 shadow-xl">
+                    <div className="card bg-base-100 h-52 w-72 md:h-64 md:w-80 lg:h-64 lg:w-96 shadow-xl dark:bg-slate-800 dark:text-white">
                         <figure className="px-5 pt-5 md:px-10 md:pt-10">
                             <img
                                 src="https://i.ibb.co.com/wNMHJ3Jf/safety-box-12367705.png"
@@ -22,7 +22,7 @@ const Features = () => {
                         </div>
                     </div>
 
-                    <div className="card bg-base-100 h-52 w-72 md:h-64 md:w-80 lg:h-64 lg:w-96 shadow-xl">
+                    <div className="card bg-base-100 h-52 w-72 md:h-64 md:w-80 lg:h-64 lg:w-96 shadow-xl dark:bg-slate-800 dark:text-white">
                         <figure className="px-5 pt-5 md:px-10 md:pt-10">
                             <img
                                 src="https://i.ibb.co.com/svj0608J/60413-OA7-H3-L-426.jpg"
@@ -35,7 +35,7 @@ const Features = () => {
                         </div>
                     </div>
 
-                    <div className="card bg-base-100 h-52 w-72 md:h-64 md:w-80 lg:h-64 lg:w-96 shadow-xl">
+                    <div className="card bg-base-100 h-52 w-72 md:h-64 md:w-80 lg:h-64 lg:w-96 shadow-xl dark:bg-slate-800 dark:text-white">
                         <figure className="px-5 pt-5 md:px-10 md:pt-10">
                             <img
                                 src="https://i.ibb.co.com/XxMhWyR2/4507693.jpg"
@@ -48,7 +48,7 @@ const Features = () => {
                         </div>
                     </div>
 
-                    <div className="card bg-base-100 h-52 w-72 md:h-64 md:w-80 lg:h-64 lg:w-96 shadow-xl">
+                    <div className="card bg-base-100 h-52 w-72 md:h-64 md:w-80 lg:h-64 lg:w-96 shadow-xl dark:bg-slate-800 dark:text-white">
                         <figure className="px-5 pt-5 md:px-10 md:pt-10">
                             <img
                                 src="https://i.ibb.co.com/jPcYZCFf/804237-preview.jpg"
@@ -61,7 +61,7 @@ const Features = () => {
                         </div>
                     </div>
 
-                    <div className="card bg-base-100 h-52 w-72 md:h-64 md:w-80 lg:h-64 lg:w-96 shadow-xl">
+                    <div className="card bg-base-100 h-52 w-72 md:h-64 md:w-80 lg:h-64 lg:w-96 shadow-xl dark:bg-slate-800 dark:text-white">
                         <figure className="px-5 pt-5 md:px-10 md:pt-10">
                             <img
                                 src="https://i.ibb.co.com/S44P0nzb/4979939-50880.jpg"
@@ -74,7 +74,7 @@ const Features = () => {
                         </div>
                     </div>
 
-                    <div className="card bg-base-100 h-52 w-72 md:h-64 md:w-80 lg:h-64 lg:w-96 shadow-xl">
+                    <div className="card bg-base-100 h-52 w-72 md:h-64 md:w-80 lg:h-64 lg:w-96 shadow-xl dark:bg-slate-800 dark:text-white">
                         <figure className="px-5 pt-5 md:px-10 md:pt-10">
                             <img
                                 src="https://i.ibb.co.com/yFg87mzY/alarm-clock-693266.png"
@@ -87,7 +87,7 @@ const Features = () => {
                         </div>
                     </div>
 
-                    <div className="card bg-base-100 h-52 w-72 md:h-64 md:w-80 lg:h-64 lg:w-96 shadow-xl">
+                    <div className="card bg-base-100 h-52 w-72 md:h-64 md:w-80 lg:h-64 lg:w-96 shadow-xl dark:bg-slate-800 dark:text-white">
                         <figure className="px-5 pt-5 md:px-10 md:pt-10">
                             <img
                                 src="https://i.ibb.co.com/WvLcTvFk/2756252-370964-PBTMMI-499.jpg"

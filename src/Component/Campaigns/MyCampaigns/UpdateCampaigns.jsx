@@ -54,7 +54,7 @@ const UpdateCampaigns = () => {
                     <div className="text-center">
                         <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white">Update Campaign</h1>
                     </div>
-                    <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100">
+                    <div className="card flex-shrink-0 w-full shadow-2xl bg-base-100 dark:bg-slate-800 dark:text-white">
                         <form onSubmit={handleUpdate} className="card-body grid grid-cols-1 md:grid-cols-2 gap-x-11 gap-y-4">
 
                             <div className="form-control">

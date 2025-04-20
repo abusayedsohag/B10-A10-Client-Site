@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthContext';
-import { ThemeContext } from '../../Provider/ThemeContext';
 import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
@@ -29,7 +28,7 @@ const Navbar = () => {
             <div className="flex items-center pr-2 sm:navbar sm:w-11/12 bg-blue-400 text-white dark:bg-black w-11/12 mx-auto rounded-lg">
                 <div className="navbar-start">
                     <div className="dropdown">
-                        <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
+                        <div tabIndex={0} role="button" className="p-2 lg:hidden">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 className="h-5 w-5"
@@ -91,10 +90,10 @@ const Navbar = () => {
                         ) : (
                             <div className='navbar-end gap-1'>
                                 <div className="">
-                                    <Link to='/login'><h1 className="btn btn-xs sm:btn">Login</h1></Link>
+                                    <Link to='/login'><h1 className="btn btn-xs sm:btn dark:bg-slate-800 dark:text-white">Login</h1></Link>
                                 </div>
                                 <div className="">
-                                    <Link to='/register'><h1 className="btn btn-xs sm:btn">Register</h1></Link>
+                                    <Link to='/register'><h1 className="btn btn-xs sm:btn dark:bg-slate-800 dark:text-white">Register</h1></Link>
                                 </div>
                             </div>
                         )

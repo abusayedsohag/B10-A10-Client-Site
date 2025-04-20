@@ -9,11 +9,11 @@ const AllCampaigns = () => {
     return (
         <div>
             <div className="w-11/12 mx-auto my-6">
-                <div className="overflow-x-auto bg-slate-100 hidden md:block">
+                <div className="overflow-x-auto bg-slate-100 dark:bg-slate-800 dark:text-white hidden md:block">
                     <table className="table">
                         {/* head */}
                         <thead className=''>
-                            <tr className=''>
+                            <tr className='dark:text-white dark:border-b-white' >
                                 <th>Campaigns</th>
                                 <th>Campaigns Type</th>
                                 <th>Min. Donation</th>
@@ -25,7 +25,7 @@ const AllCampaigns = () => {
                             {/* row 1 */}
                             {
                                 cards?.map(camp => (
-                                    <tr key={camp._id}>
+                                    <tr key={camp._id} className='dark:border-b-blue-500'>
                                         <td>
                                             <div className="flex items-center space-x-3">
                                                 <div className="avatar">
@@ -40,7 +40,7 @@ const AllCampaigns = () => {
                                             </div>
                                         </td>
                                         <td>
-                                            <h1 className="badge badge-outline badge-sm">{camp.type}</h1>
+                                            <h1 className="badge badge-outline badge-sm dark:text-white">{camp.type}</h1>
                                         </td>
                                         <td>
                                             <h1>{camp.amount} BDT</h1>
@@ -58,8 +58,8 @@ const AllCampaigns = () => {
                 {/* For small screens (mobile) */}
                 <div key={cards._id} className="grid md:hidden">
                     {cards?.map((camp) => (
-                        <div key={camp._id}>
-                            <div className="bg-white p-4 flex flex-col gap-2">
+                        <div key={camp._id} className=''>
+                            <div className="bg-white dark:bg-slate-800 dark:text-white p-4 flex flex-col gap-2">
                                 <div className="flex items-center gap-4">
                                     <img src={camp.image} alt={camp.title} className="w-12 h-12 object-cover rounded" />
                                     <div>
@@ -68,7 +68,7 @@ const AllCampaigns = () => {
                                     </div>
                                 </div>
                                 <div className="flex justify-between text-sm">
-                                    <span className="badge badge-outline badge-xs">{camp.type}</span>
+                                    <span className="badge badge-outline badge-xs dark:text-white">{camp.type}</span>
                                     <span className="font-semibold">Mini. Donate: <span className='font-normal text-xs'>{camp.amount} BDT</span></span>
                                 </div>
                                 <Link to={`/details/${camp._id}`} className="self-end">
