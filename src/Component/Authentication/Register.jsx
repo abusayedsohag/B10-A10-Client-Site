@@ -39,7 +39,6 @@ const Register = () => {
 
         createUser(email, password)
             .then(res => {
-                console.log(res.user)
 
                 const createAt = res.user?.metadata?.creationTime;
                 const newUserData = { name, email, photoURL, password, createAt }
@@ -50,12 +49,11 @@ const Register = () => {
                 }
 
                 updateProfile(auth.currentUser, profile)
-                    .then(res => { console.log(res) })
 
                 navigate('/')
 
                 //store userdata in MongoDB
-                fetch('http://localhost:5001/user', {
+                fetch('https://crowdcube-server-site-alpha.vercel.app/user', {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json',
@@ -75,7 +73,6 @@ const Register = () => {
                     })
             })
             .catch(error => {
-                console.log(error.code)
 
                 if (error.code == 'auth/email-already-in-use') {
                     Swal.fire({
@@ -92,7 +89,6 @@ const Register = () => {
     const googleSignIn = () => {
         signInWithPopup(auth, googleUser)
             .then(res => {
-                console.log(res)
                 Swal.fire({
                     title: "Login Successful",
                     icon: "success",
@@ -103,7 +99,6 @@ const Register = () => {
 
             })
             .catch(error => {
-                console.log(error.code)
                 Swal.fire({
                     icon: "error",
                     title: "Already Another Credential",
@@ -115,7 +110,6 @@ const Register = () => {
     const githubSignIn = () => {
         signInWithPopup(auth, githubUser)
             .then(res => {
-                console.log(res)
                 Swal.fire({
                     title: "Login Successful",
                     icon: "success",
@@ -126,8 +120,6 @@ const Register = () => {
 
             })
             .catch(error => {
-                console.log(error)
-                console.log(error.code)
                 Swal.fire({
                     icon: "error",
                     title: "Already Another Credential",
@@ -139,7 +131,6 @@ const Register = () => {
     const facebookSignIn = () => {
         signInWithPopup(auth, facebookUser)
             .then(res => {
-                console.log(res)
                 Swal.fire({
                     title: "Login Successful",
                     icon: "success",
@@ -150,8 +141,6 @@ const Register = () => {
 
             })
             .catch(error => {
-                console.log(error)
-                console.log(error.code)
                 Swal.fire({
                     icon: "error",
                     title: "Already Another Credential",

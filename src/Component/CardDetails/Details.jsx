@@ -26,7 +26,7 @@ const Details = () => {
             return;
         } else {
 
-            fetch('http://localhost:5001/donatelist', {
+            fetch('https://crowdcube-server-site-alpha.vercel.app/donatelist', {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"
@@ -40,7 +40,13 @@ const Details = () => {
                         draggable: true
                     });
                 })
-                .catch(error => { console.log(error) })
+                .catch(error => { 
+                    Swal.fire({
+                        title: "Something Else",
+                        icon: "warning",
+                        draggable: true
+                    });
+                 })
         }
     }
 

@@ -31,10 +31,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: async () => {
-          const campaignData = await fetch('http://localhost:5001/campaign').then(res => res.json());
-          const featureData = await fetch('http://localhost:5001/campaigns').then(res => res.json());
-          const donationData = await fetch('http://localhost:5001/donations').then(res => res.json());
-          const userData = await fetch('http://localhost:5001/user').then(res => res.json());
+          const campaignData = await fetch('https://crowdcube-server-site-alpha.vercel.app/campaign').then(res => res.json());
+          const featureData = await fetch('https://crowdcube-server-site-alpha.vercel.app/campaigns').then(res => res.json());
+          const donationData = await fetch('https://crowdcube-server-site-alpha.vercel.app/donations').then(res => res.json());
+          const userData = await fetch('https://crowdcube-server-site-alpha.vercel.app/user').then(res => res.json());
 
           return { campaign: campaignData, campaigns: featureData, donations: donationData, user: userData };
         }
@@ -54,27 +54,27 @@ const router = createBrowserRouter([
       {
         path: "/details/:id",
         element: <PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5001/campaign/${params.id}`),
+        loader: ({ params }) => fetch(`https://crowdcube-server-site-alpha.vercel.app/campaign/${params.id}`),
       },
       {
         path: "campaigns",
         element: <AllCampaigns></AllCampaigns>,
-        loader: () => fetch('http://localhost:5001/campaigns'),
+        loader: () => fetch('https://crowdcube-server-site-alpha.vercel.app/campaigns'),
       },
       {
         path: "/mycampaigns",
         element: <PrivateRoute><MyCampaigns></MyCampaigns></PrivateRoute>,
-        loader: () => fetch('http://localhost:5001/campaigns')
+        loader: () => fetch('https://crowdcube-server-site-alpha.vercel.app/campaigns')
       },
       {
         path: "/updateCampaign/:id",
         element: <PrivateRoute><UpdateCampaigns></UpdateCampaigns></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:5001/campaign/${params.id}`)
+        loader: ({ params }) => fetch(`https://crowdcube-server-site-alpha.vercel.app/campaign/${params.id}`)
       },
       {
         path: "/myDonation",
         element: <PrivateRoute><MyDonation></MyDonation></PrivateRoute>,
-        loader: () => fetch('http://localhost:5001/donations')
+        loader: () => fetch('https://crowdcube-server-site-alpha.vercel.app/donations')
       },
     ]
   },

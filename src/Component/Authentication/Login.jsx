@@ -25,7 +25,6 @@ const Login = () => {
 
         existingUser(email, password)
             .then(res => {
-                console.log(res)
                 Swal.fire({
                     title: "Login Successful",
                     icon: "success",
@@ -36,7 +35,6 @@ const Login = () => {
 
             })
             .catch(error => {
-                console.log(error.code)
                 Swal.fire({
                     icon: "error",
                     title: "Invalid Password",
@@ -49,7 +47,6 @@ const Login = () => {
     const googleSignIn = () => {
         signInWithPopup(auth, googleUser)
             .then(res => {
-                console.log(res)
                 Swal.fire({
                     title: "Login Successful",
                     icon: "success",
@@ -60,7 +57,6 @@ const Login = () => {
 
             })
             .catch(error => {
-                console.log(error.code)
                 Swal.fire({
                     icon: "error",
                     title: "Already Another Credential",
@@ -72,7 +68,6 @@ const Login = () => {
     const githubSignIn = () => {
         signInWithPopup(auth, githubUser)
             .then(res => {
-                console.log(res)
                 Swal.fire({
                     title: "Login Successful",
                     icon: "success",
@@ -83,8 +78,6 @@ const Login = () => {
 
             })
             .catch(error => {
-                console.log(error)
-                console.log(error.code)
                 Swal.fire({
                     icon: "error",
                     title: "Already Another Credential",
@@ -96,7 +89,6 @@ const Login = () => {
     const facebookSignIn = () => {
         signInWithPopup(auth, facebookUser)
             .then(res => {
-                console.log(res)
                 Swal.fire({
                     title: "Login Successful",
                     icon: "success",
@@ -107,8 +99,6 @@ const Login = () => {
 
             })
             .catch(error => {
-                console.log(error)
-                console.log(error.code)
                 Swal.fire({
                     icon: "error",
                     title: "Already Another Credential",

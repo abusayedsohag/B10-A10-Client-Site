@@ -21,7 +21,7 @@ const AddCampaigns = () => {
 
         const newCampaign = { image, title, type, amount, deadline, useremail, username, description }
 
-        fetch('http://localhost:5001/campaigns', {
+        fetch('https://crowdcube-server-site-alpha.vercel.app/campaigns', {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
@@ -30,7 +30,6 @@ const AddCampaigns = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.insertedId) {
                     Swal.fire({
                         title: "Successfully Added",

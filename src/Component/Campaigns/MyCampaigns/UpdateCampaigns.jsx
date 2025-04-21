@@ -20,7 +20,7 @@ const UpdateCampaigns = () => {
 
         const updateCampaign = { image, title, type, amount, deadline, description }
 
-        fetch(`http://localhost:5001/campaign/${param.id}`, {
+        fetch(`https://crowdcube-server-site-alpha.vercel.app/campaign/${param.id}`, {
             method: "PUT",
             headers: {
                 "Content-type": "application/json",
@@ -29,7 +29,6 @@ const UpdateCampaigns = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.modifiedCount) {
                     Swal.fire({
                         title: "Successfully Updated",
