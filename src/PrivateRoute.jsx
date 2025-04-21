@@ -7,11 +7,11 @@ const PrivateRoute = ({ children }) => {
 
     const { user, loader } = useContext(AuthContext);
 
-    if (loader) {
-        return (
-            <Spinner></Spinner>
-        )
-    }
+    // if (loader) {
+    //     return (
+    //         <Spinner></Spinner>
+    //     )
+    // }
 
     return user ? children : <Navigate to="/login" />;
 

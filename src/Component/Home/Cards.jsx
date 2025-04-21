@@ -2,10 +2,19 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Card from './Card';
 import { Typewriter } from 'react-simple-typewriter';
+import Spinner from '../Spinner/Spinner';
 
 const Cards = () => {
 
     const { campaign } = useLoaderData();
+
+    if (!campaign) {
+        return (
+            <div className='w-full h-screen flex justify-center items-center'>
+                <Spinner />
+            </div>
+        );
+    }
 
     return (
         <div className='w-10/12 md:w-11/12 mx-auto my-5'>

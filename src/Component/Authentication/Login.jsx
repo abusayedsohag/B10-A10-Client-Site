@@ -10,6 +10,8 @@ const Login = () => {
     const [show, setShow] = useState(false)
     const navigate = useNavigate()
 
+    const { setLoading } = useContext(AuthContext);
+
     const { existingUser, googleUser, githubUser, facebookUser } = useContext(AuthContext)
 
     const handleShow = (active) => {
@@ -17,6 +19,7 @@ const Login = () => {
     }
 
     const handleSignIn = (e) => {
+        // setLoading(true)
         e.preventDefault();
 
         const form = e.target;
@@ -30,6 +33,9 @@ const Login = () => {
                     icon: "success",
                     draggable: true
                 });
+                // setTimeout(() => {
+                //     setLoading(false);
+                // }, 5000);
 
                 navigate('/')
 
@@ -109,7 +115,7 @@ const Login = () => {
 
     return (
         <div>
-            <div className="hero min-h-screen mt-4 md:mt-6">
+            <div className="hero mt-4 md:mt-6">
                 <img
                     src="https://i.ibb.co.com/k2nMF0Lx/14731307-rm218-bb-07.jpg"
                     alt="bg"
@@ -157,9 +163,9 @@ const Login = () => {
                                 <hr className='border border-black w-5/12' />
                             </div>
                             <div className='h-14 flex justify-center items-center gap-4'>
-                                <button onClick={googleSignIn}><i className="fa-brands fa-google text-3xl"></i></button>
-                                <button onClick={githubSignIn}><i className="fa-brands fa-github text-3xl"></i></button>
-                                <button onClick={facebookSignIn}><i className="fa-brands fa-facebook text-3xl"></i></button>
+                                <button type='button' onClick={googleSignIn}><i className="fa-brands fa-google text-3xl"></i></button>
+                                <button type='button' onClick={githubSignIn}><i className="fa-brands fa-github text-3xl"></i></button>
+                                <button type='button' onClick={facebookSignIn}><i className="fa-brands fa-facebook text-3xl"></i></button>
                             </div>
                         </form>
                     </div>

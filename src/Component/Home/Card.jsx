@@ -1,19 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Slide } from "react-awesome-reveal";
+import Spinner from '../Spinner/Spinner';
 
 const Card = ({ card }) => {
 
+    const [loading, setLoading] = useState(true);
+
+    const handleImageLoad = () => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 2000);
+    };
+
     return (
         <>
-            <Slide triggerOnce >
-                <div className='h-[450px]'>
+            <Slide triggerOnce cascade duration={2000} >
+                <div className='h-[450px] relative'>
+                    {loading && (
+                        <div className='absolute z-10 top-0 left-0 w-full h-48 flex justify-center items-center bg-gray-100 bg-opacity-50'>
+                            <Spinner />
+                        </div>
+                    )}
+
                     <div className="card card-compact h-full bg-base-100 dark:bg-slate-800 dark:text-white shadow-xl">
                         <figure>
                             <img
                                 src={card.image}
                                 alt="Shoes"
-                                className='h-48 w-full'
+                                className={`h-48 w-full ${loading ? 'opacity-0' : ''}`}
+                                onLoad={handleImageLoad}
                             />
                         </figure>
                         <div className="card-body justify-between">

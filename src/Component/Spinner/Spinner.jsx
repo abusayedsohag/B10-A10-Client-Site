@@ -1,19 +1,26 @@
-import React from 'react';
-import { useNavigation } from 'react-router-dom';
+import React, { useContext } from 'react';
+import HashLoader from "react-spinners/HashLoader";
+import { ThemeContext } from '../../Provider/ThemeContext';
+
 
 const Spinner = () => {
 
-    const navigation = useNavigation()
+    const {theme} = useContext(ThemeContext);
+    const color = theme === 'dark' ? '#eeff00' : '#000000';
 
-    if (navigation.state === "loading") {
-        return (
-            <div className="flex justify-center items-center h-screen">
-                <span className="loading loading-spinner text-warning loading-xl"></span>
+    return (
+        <div className="sweet-loading">
+            <div className=''>
+                <HashLoader
+                    color={color}
+                    loading= {true}
+                    size={50}
+                    aria-label="Loading Spinner"
+                    data-testid="loader"
+                />
             </div>
-        );
-    }
-
-    return null;
+        </div>
+    );
 };
 
 export default Spinner;

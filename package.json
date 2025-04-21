@@ -19,6 +19,7 @@
     "react-multi-carousel": "^2.8.6",
     "react-router-dom": "^7.3.0",
     "react-simple-typewriter": "^5.0.1",
+    "react-spinners": "^0.16.1",
     "sweetalert2": "^11.19.1"
   },
   "devDependencies": {
