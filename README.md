@@ -1,6 +1,6 @@
 # 🌐 Crowdcube: A Crowd Funding Application
 
-**Live Site URL:** [https://site-url.com](https://site-url.com)
+**Live Site URL:** [https://crowdcube-65051.web.app](https://crowdcube-65051.web.app)
 
 ## 📝 Project Overview
 
