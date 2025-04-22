@@ -1,17 +1,33 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { Typewriter } from 'react-simple-typewriter';
+import Spinner from '../Spinner/Spinner';
 
 
 const AllCampaigns = () => {
 
     const cardsData = useLoaderData();
+    const [loading, setLoading] = useState(true)
+    const [cards, setCards] = useState([])
 
-    const [cards, setCards] = useState([...cardsData])
+    useEffect(() => {
+        if (cardsData) {
+            setCards([...cardsData]);
+            setLoading(false);
+        }
+    }, [cardsData]);
 
     const sortOrder = (info) => {
         const sorted = [...cards].sort((a, b) => info === "Ascending" ? a.amount - b.amount : b.amount - a.amount)
         setCards(sorted)
+    }
+
+    if (loading) {
+        return (
+            <div className="w-11/12 mx-auto my-6 flex justify-center items-center h-48">
+                <Spinner />
+            </div>
+        );
     }
 
     return (

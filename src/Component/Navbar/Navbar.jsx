@@ -5,7 +5,15 @@ import ThemeToggle from './ThemeToggle';
 
 const Navbar = () => {
 
-    const { user, logOutUser } = useContext(AuthContext)
+    const { user, logOutUser, loading } = useContext(AuthContext)
+
+    if (loading) {
+        return (
+            <>
+                <p>Loading....</p>
+            </>
+        )
+    }
 
     const links = (
         <>
@@ -62,28 +70,24 @@ const Navbar = () => {
                             <div className='w-full'>
                                 {
                                     user.photoURL ? (
-
                                         <div className='flex justify-end'>
                                             <h1 className="group relative flex h-6 w-6 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-white shadow-lg transition-all duration-500
-                                            hover:w-full">
-
+                                                hover:w-full">
                                                 <span className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 to-green-500 opacity-0 transition duration-500 group-hover:opacity-100 dark:from-blue-700 dark:to-green-600"></span>
-
-
-                                                <span className="text-black text-xl transition-transform duration-300 group-hover:scale-0"><img className='rounded-full' src={user.photoURL} /></span>
+                                                <span className="text-black text-xl transition-transform duration-300 group-hover:scale-0"><img className='rounded-full h-6 sm:h-10' src={user.photoURL} /></span>
 
                                                 <span className="absolute scale-0 text-white transition-transform duration-500 group-hover:scale-100 hover:opacity-100 w-full">
-
                                                     <div className='w-full flex justify-between items-center'>
-                                                        <h1 className='text-sm flex justify-center items-center pl-3 w-full'>{user.displayName.split(' ').slice(0, 2).join(' ')}</h1>
+                                                        <h1 className='text-sm flex justify-center items-center pl-3 w-full'>{user.displayName?.split(' ').slice(0, 2).join(' ')}</h1>
                                                         <button onClick={() => logOutUser()} className='btn btn-xs rounded-e-full md:btn md:rounded-e-full'>Log Out</button>
                                                     </div>
                                                 </span>
                                             </h1>
                                         </div>
-
                                     ) : (
-                                        <i className="fa-solid fa-circle-user text-3xl pr-3"></i>
+                                        <div className='flex justify-end'>
+                                            <i className="fa-solid fa-circle-user text-3xl"></i>
+                                        </div>
                                     )
                                 }
                             </div>
